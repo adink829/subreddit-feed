@@ -9,7 +9,6 @@ const Feed = props => {
                 <SinglePost key={post.id} post={post} favorites={props.favorites} updateFavorites={props.updateFavorites} />
             ))}
         </ul >
-
     )
 }
 

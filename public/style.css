@@ -26,18 +26,42 @@ code {
   background-color: white;
 }
 
-.nav-link{
-  margin: 10px;
+  #header i{
+    padding: 0px 3px 0px 0px;
+  }
+
+.nav-link-selected{
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  height: 40px;
   text-decoration: none;
   font: Helvetica;
-  color: #57a2e4;
   font-size: 16px;
   font-weight: 500;
+  background-color: #57a2e4;
+  color: white;
+}
+
+.nav-link-unselected{
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  height: 40px;
+  text-decoration: none;
+  font: Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: white;
+  color: #57a2e4;
 }
 
 #feed{
   position: absolute;
   top: 40px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
 }
 
 #single-page{
@@ -46,21 +70,22 @@ code {
 
 /*Styling for single posts */
 
-#single-post{
+.single-post{
   max-width: 500px;
   box-shadow: 1px 1px 1px lightgrey;
   margin: 40px;
 }
 
-  #single-post div{
+  .single-post div{
     border: 1px solid lightgray;
   }
 
-  #single-post img{
+  .single-post img{
     max-width: 500px;
+    z-index: -1;
   }
 
-  #single-post h1{
+  .single-post h1{
     font-family: 'Arvo', serif;
     font-size: 18px;
     line-height: 24px;
@@ -68,19 +93,34 @@ code {
     padding: 24px;
   }
 
-#thumbnail-container{
+.img-container{
   background-color: black;
+  height: 350px;
+  position: relative;
 }
 
-#post-subhead {
+.favorite-icon{
+  color: white;
+  z-index: 1;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+.post-subhead {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-  #post-subhead p{
+  .post-subhead p{
     font: Helvetica;
     font-size: 12px;
     color: #999;
     margin: 5px;
   }
+
+  [hidden]{
+    display:none !important;
+  }
+

@@ -5,7 +5,7 @@ class AllPosts extends Component {
     constructor() {
         super()
         this.state = {
-            posts: []
+            posts: [],
         }
     }
 
@@ -23,8 +23,9 @@ class AllPosts extends Component {
     }
 
     render() {
+        const favorites = this.props.favorites
         return (
-            <Feed posts={this.state.posts} />
+            <Feed posts={this.state.posts} favorites={favorites} updateFavorites={this.props.updateFavorites} />
         )
     }
 }

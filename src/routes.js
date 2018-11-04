@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter, Route, Switch } from 'react-router'
 
 import AllPosts from './components/AllPosts'
-import Favorites from './components/Favorites'
+import FavoritePosts from './components/Favorites'
 
 
 class Routes extends Component {
@@ -12,7 +12,7 @@ class Routes extends Component {
             <div>
                 <Switch>
                     <Route path="/" component={AllPosts} />
-                    <Route path="/favorites" component={Favorites} />
+                    <Route path="/favorites" component={FavoritePosts} />
                 </Switch>
             </div>
         )

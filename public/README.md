@@ -1,12 +1,12 @@
 # SubReddit Feed Reader
 
 ## Deployed App
-You can find this deployed app at https://adink829.github.io/feed.
+You can find this deployed app at https://adink829.github.io/subreddit-feed.
 
 ## Scripts
-To run this app locally, 'npm start'.
-To run tests, 'npm run test'.
-To deploy, 'npm run deploy'.
+* To run this app locally, 'npm start'.
+* To run tests, 'npm run test'.
+* To deploy, 'npm run deploy'.
 
 ## Built With
 * Javascript
@@ -15,4 +15,4 @@ To deploy, 'npm run deploy'.
 * React
 
 ## Author
-* Alicia Dinkel
+Alicia Dinkel

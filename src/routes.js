@@ -1,22 +1,20 @@
 import React, { Component } from 'react'
-import { withRouter, Route, Switch } from 'react-router'
+import { withRouter, Redirect, Route, Switch } from 'react-router-dom'
 
 import AllPosts from './components/AllPosts'
 import FavoritePosts from './components/Favorites'
 
 
 class Routes extends Component {
-
     render() {
         return (
-            <div>
-                <Switch>
-                    <Route path="/" component={AllPosts} />
-                    <Route path="/favorites" component={FavoritePosts} />
-                </Switch>
-            </div>
+            < Switch >
+                <Route path="/feed" render={() => <AllPosts favorites={this.props.favorites} updateFavorites={this.props.updateFavorites} />} />
+                <Route path="/favorites" render={() => <FavoritePosts favorites={this.props.favorites} updateFavorites={this.props.updateFavorites} />} />
+                <Redirect to="/feed" />
+            </Switch >
         )
     }
 }
 
-export default Routes
+export default withRouter(Routes)

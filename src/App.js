@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import Header from './components/Header'
-import Feed from './components/Feed'
 import Routes from './routes'
-import AllPosts from './components/AllPosts'
+import { Router } from 'react-router-dom'
+import history from './history'
 
 class App extends Component {
   constructor() {
@@ -13,33 +13,29 @@ class App extends Component {
     this.updateFavorites = this.updateFavorites.bind(this)
   }
 
-  updateFavorites(id) {
+  updateFavorites(post) { //if post is not in favorites, add it; if it is in favorites, remove it
     const favorites = this.state.favorites
-    const favoriteButton = document.getElementById(id)
-
-    if (!favorites.includes(id)) {
+    if (!favorites.includes(post)) {
       this.setState({
-        favorites: [...favorites, id]
+        favorites: [...favorites, post]
       })
-      favoriteButton.className = "fas fa-trash-alt favorite-icon"
     }
-
-    else if (favorites.includes(id)) {
+    else if (favorites.includes(post)) {
       this.setState({
-        favorites: this.state.favorites.filter(e => e !== id)
+        favorites: this.state.favorites.filter(e => e.data.id !== post.data.id)
       })
-      favoriteButton.className = "fas fa-heart favorite-icon"
     }
   }
 
   render() {
     return (
       <div className="App">
-        <Header favorites={this.state.favorites} />
-        <div id="feed">
-          {/* <AllPosts favorites={this.state.favorites} updateFavorites={this.updateFavorites} /> */}
-          <Routes favorites={this.state.favorites} updateFavorites={this.updateFavorites} />
-        </div>
+        <Router history={history}>
+          <Header favorites={this.state.favorites} />
+          <div id="feed">
+            <Routes favorites={this.state.favorites} updateFavorites={this.updateFavorites} />
+          </div>
+        </Router>
       </div>
     );
   }
